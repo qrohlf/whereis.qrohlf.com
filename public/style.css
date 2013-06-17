@@ -11,6 +11,9 @@ html {
 	overflow: auto;
 	min-height: 100%;
 	background: url('/images/IMG_1241.jpg') no-repeat center center fixed #e2e2e2;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
 	color: #585858;
 }
