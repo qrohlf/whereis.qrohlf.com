@@ -10,7 +10,7 @@ html {
 	width: 100%;
 	overflow: auto;
 	min-height: 100%;
-	background: #e2e2e2;
+	background: url('/images/topo_grunge.png') #e2e2e2;
 	color: #585858;
 }
 
@@ -73,6 +73,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 32px;
 	line-height: 48px;
+	color: rgb(255, 255, 255);
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.52);
 }
 
 strong {
