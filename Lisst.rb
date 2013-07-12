@@ -60,7 +60,7 @@ end
 
 delete '/:item' do
 	redirect('/');
-    @list.delete(params[:item]);
+  @list.delete(params[:item]);
 	# delete item from the list
 end
 
