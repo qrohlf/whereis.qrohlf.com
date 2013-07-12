@@ -50,6 +50,13 @@ header, footer {
 	box-shadow: 0px 0px 3px rgba(150, 30, 0, .4);
 }
 
+@media (min-width: 712px) {
+	.item {
+		width: 680px;
+		margin: 15px auto;
+	}
+}
+
 .detail {
 	display: inline-block;
 	padding: 10px;
@@ -102,7 +109,6 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 32px;
 	line-height: 48px;
-	/*text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.52);*/
 }
 
 strong {

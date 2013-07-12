@@ -50,13 +50,11 @@ get '/edit' do
 end
 
 post '/' do
-	redirect('/');
 	ListItem.create(params)
 	redirect("/edit")
 end
 
 put '/:item' do
-	redirect('/');
 	#update item in list
 end
 
