@@ -1,5 +1,6 @@
 require 'sinatra'
 require "sinatra/config_file"
+require 'newrelic_rpm'
 require 'haml'
 require 'sinatra/activerecord'
 require 'uri'
