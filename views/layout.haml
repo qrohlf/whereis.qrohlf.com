@@ -11,6 +11,11 @@
             #main
                 %header
                     %h1=settings.title
+                    .row
+                - unless session[:auth].nil?
+                    %p.small.text-center
+                        = "logged in as #{session[:auth][:info][:email]}."
+                        %a{href: '/logout'} Log out?
                 =yield
                 %footer
                     .row

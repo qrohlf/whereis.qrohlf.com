@@ -7620,6 +7620,9 @@ header h1 {
 footer {
   margin-top: 64px;
 }
+footer a:hover {
+  text-decoration: none;
+}
 #main {
   padding: 4rem 0;
 }
