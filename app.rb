@@ -22,7 +22,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 # Session:Cookie needed by OmniAuth
-use Rack::Session::Cookie
+use Rack::Session::Cookie, secret: rand.to_s
 # MethodOverride for RESTful interface
 use Rack::MethodOverride
 # Use OmniAuth Google Strategy
@@ -39,7 +39,7 @@ end
 # load title and data before methods that need it
 before :method => 'get' do
 	@title = settings.title
-	@list = ListItem.all(order: 'id DESC')
+	@list = ListItem.order('id DESC')
 end
 
 # the homepage
