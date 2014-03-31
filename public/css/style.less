@@ -1,0 +1,54 @@
+// ====================================
+// SETUP
+// This is where we set up Bootstrap, apply a theme, etc.
+// You probably don't want to mess with this, other than to set
+// the theme name
+// ====================================
+// Import all Bootstrap modules
+@import "../vendor/bootstrap/less/bootstrap";
+// Import the icomoon stylesheet
+// Note that you need to enable the --relative-urls LESS option
+// for this to work.
+@import (less) "../vendor/icomoon/style.css";
+// Fix the path for the glyphicons font included with Bootstrap
+@icon-font-path: '../vendor/bootstrap/fonts/';
+
+body {
+    border-top: 6px solid #D1183A;
+    background: url(/images/topo.jpg) repeat;
+}
+
+header h1 {
+    .text-center;
+    margin-bottom: 2rem;
+}
+
+#main {
+    padding: 4rem 0;
+}
+
+::selection {
+    background-color: rgb(209, 24, 58);
+    color: rgb(255, 255, 255);
+}
+
+.item-title {
+    font-size: @font-size-base * 1.5;
+}
+
+@media (min-width: @screen-sm-min) {
+    .center-vertical {
+    display: table;
+        [class*="col-"] {
+        float: none;
+        display: table-cell;
+        vertical-align: middle;
+        }
+    }   
+}
+
+@text-color: #585858;
+@body-bg: #E9E9E9;
+@font-family-sans-serif: 'Open Sans', sans-serif;
+@font-size-base: 16px;
+@font-size-h1: floor((@font-size-base * 2));

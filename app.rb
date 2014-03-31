@@ -1,13 +1,12 @@
-require 'sinatra'
-require "sinatra/config_file"
-require 'newrelic_rpm'
-require 'haml'
-require 'sinatra/activerecord'
+require 'rubygems' 
+require 'bundler/setup'
+# require all of the gems in the gemfile
+Bundler.require
+
 require 'uri'
 require './models/ListItem'
-require 'omniauth'
-require 'omniauth-google-oauth2'
-
+# load the environment variables from .env (testing environment)
+Dotenv.load
 config_file 'config.yml'
 
 db = URI.parse(ENV['DATABASE_URL'])

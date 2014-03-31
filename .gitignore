@@ -3,3 +3,5 @@
 development.db
 *.db
 .DS_Store
+.bundle
+.env

@@ -1,4 +1,7 @@
-- @list.each do |item| 
-    .item
-        .detail.title=item.title
-        .detail.content=item.content
+- @list.each do |item|
+    .panel.panel-default.col-md-8.col-md-offset-2
+        .panel-body.center-vertical
+            .col-sm-4
+                %span.item-title=item.title
+            .col-sm-8
+                %span.item-content=item.content
