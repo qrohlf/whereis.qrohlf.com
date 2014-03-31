@@ -14,13 +14,17 @@
 @icon-font-path: '../vendor/bootstrap/fonts/';
 
 body {
-    border-top: 6px solid #D1183A;
+    border-top: 8px solid @brand-primary;
     background: url(/images/topo.jpg) repeat;
 }
 
 header h1 {
     .text-center;
     margin-bottom: 2rem;
+}
+
+footer {
+    margin-top: 4 * 16px;
 }
 
 #main {
@@ -36,19 +40,81 @@ header h1 {
     font-size: @font-size-base * 1.5;
 }
 
-@media (min-width: @screen-sm-min) {
-    .center-vertical {
+.center-vertical-xs {
     display: table;
-        [class*="col-"] {
+    &>[class*="col-"] {
         float: none;
         display: table-cell;
         vertical-align: middle;
-        }
-    }   
+    }
+    width: 100%;
+}  
+
+@media (min-width: @screen-sm-min) {
+    .center-vertical-sm {
+        .center-vertical-xs
+    }
+}
+
+.item [class*="icon-"] {
+    font-size: @font-size-base * 2;
+}
+
+.anim-rotate() {
+    0% {
+        .rotate(0);
+    }
+    100% {
+        .rotate(360deg);
+    }
+}
+
+@-webkit-keyframes anim-rotate {
+  .anim-rotate
+}
+@-moz-keyframes anim-rotate {
+  .anim-rotate
+}
+@-o-keyframes anim-rotate {
+  .anim-rotate
+}
+@keyframes anim-rotate {
+  .anim-rotate
+}
+
+.spinner {
+    opacity: 0;
+    display: none;
+    font-size: 32px;
+    height: 36px;
+    width: 36px;
+    line-height: 35px;
+    text-align: center;
+    .animation(anim-rotate 2s infinite linear);
+}
+
+.status-icon {
+    height: 36px;
+    width: 36px;
+    position: relative;
+    span {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    [class*="icon-"] {
+        .transition(opacity 0.5s ease);
+    }
 }
 
 @text-color: #585858;
 @body-bg: #E9E9E9;
+@brand-primary: #820233;
 @font-family-sans-serif: 'Open Sans', sans-serif;
 @font-size-base: 16px;
 @font-size-h1: floor((@font-size-base * 2));
+
+a.normal, a.normal:hover {
+    color: inherit;
+    text-decoration: inherit;
+}

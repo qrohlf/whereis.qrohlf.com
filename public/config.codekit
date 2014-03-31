@@ -13,8 +13,8 @@
 		"inputAbbreviatedPath": "\/css\/style.less",
 		"outputAbbreviatedPath": "\/css\/style.min.css",
 		"outputPathIsSetByUser": 1,
-		"outputStyle": 2,
-		"relativeURLS": 0,
+		"outputStyle": 0,
+		"relativeURLS": 1,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
 		"strictImports": 0,
@@ -28,16 +28,6 @@
 		"inputAbbreviatedPath": "\/css\/style.min.css",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsSetByUser": 0
-		},
-	"\/edit.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/edit.js",
-		"outputAbbreviatedPath": "\/edit.min.js",
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
 		},
 	"\/images\/squairy_light.png": {
 		"fileType": 32768,
@@ -78,6 +68,26 @@
 		"outputAbbreviatedPath": "\/images\/topo.jpg",
 		"outputPathIsSetByUser": 0,
 		"processed": 0
+		},
+	"\/js\/edit.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/edit.js",
+		"outputAbbreviatedPath": "\/js\/edit.min.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/edit.min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/edit.min.js",
+		"outputAbbreviatedPath": "\/js\/edit.min.min.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		}
 	},
 "hooks": [
@@ -638,7 +648,7 @@
 	"lessDisableJavascript": 0,
 	"lessIeCompatibility": 1,
 	"lessOutputStyle": 0,
-	"lessRelativeURLS": 0,
+	"lessRelativeURLS": 1,
 	"lessStrictImports": 0,
 	"lessStrictMath": 0,
 	"lessStrictUnits": 0,

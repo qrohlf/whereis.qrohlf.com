@@ -12,10 +12,9 @@
                 %header
                     %h1=settings.title
                 =yield
-        %footer
-            .container
-                .row
-                    %p Built by <a href="http://qrohlf.com">@qrohlf</a>
-
-        %script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js")
-        %script(src="/vendor/bootstrap/dist/js/bootstrap.min.js")
+                %footer
+                    .row
+                        .col-md-6.col-md-offset-3.text-center
+                            %a{href: '/login'}=icon ['earth', 'fire', 'globe', 'gift', 'happy', 'leaf', 'lightning', 'map', 'mug', 'pacman', 'rocket', 'star', 'trophy', 'wand', 'airplane'].sample, style: 'font-size: 48px;'
+        - @scripts.each do |src|
+            %script{src: src}

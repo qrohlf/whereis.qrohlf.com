@@ -22,12 +22,12 @@ ActiveRecord::Base.establish_connection(
 )
 
 # Session:Cookie needed by OmniAuth
-use Rack::Session::Cookie, secret: rand.to_s
+use Rack::Session::Cookie, secret: ENV['COOKIE_SECRET']
 # MethodOverride for RESTful interface
 use Rack::MethodOverride
 # Use OmniAuth Google Strategy
 use OmniAuth::Builder do
-  provider :google_oauth2, ENV["GOOGLE_KEY"], ENV["GOOGLE_SECRET"],
+  provider :google_oauth2, ENV["GOOGLE_KEY"], ENV["GOOGLE_SECRET"], 
     {
       :scope => "userinfo.email",
       #:prompt => "select_account",
@@ -40,30 +40,32 @@ end
 before :method => 'get' do
 	@title = settings.title
 	@list = ListItem.order('id DESC')
+  @scripts = []
 end
 
 # the homepage
 get '/' do
-  haml :index
+  if can_edit
+    haml :edit
+  else
+    haml :index
+  end
 end
 
-# the editing page. 
-get '/edit' do
-    redirect("/unauthorized") unless can_edit
-    @auth = session[:auth]
-	haml :edit
+get '/login' do 
+  redirect("/auth/google_oauth2")
 end
 
 post '/' do
   redirect("/unauthorized") unless can_edit
-	ListItem.create(params)
-	redirect("/edit")
+	ListItem.create(title: '+', content: '+')
+  redirect '/', 303
 end
 
 delete '/:item' do
   redirect("/unauthorized") unless can_edit
   ListItem.find(params[:item]).destroy
-  redirect("/edit", 303)
+  redirect "/", 303
 end
 
 put '/:id' do |id|
@@ -86,8 +88,22 @@ get '/unauthorized' do
     haml :unauthorized
 end
 
-def can_edit
-    auth = session[:auth]
-    redirect("/auth/google_oauth2?origin=#{URI.escape request.fullpath}") if auth.nil?
-    settings.can_edit.include? auth[:info][:email]
+helpers do 
+  def can_edit
+    return false if session[:auth].nil?
+    settings.can_edit.include? session[:auth][:info][:email]
+  end
+
+  # bootstrap glyphicons
+  def glyph(i)
+      "<span class='glyphicon glyphicon-#{i}'></span>"
+  end
+
+  #icomoon icons
+  def icon(i, attrs={})
+      c = attrs[:class]
+      attrs.merge!({class: "icon-#{i} #{c}"})
+      attrstring = attrs.map{|k,v| "#{k.to_s}='#{v}'"}.join(' ');
+      "<span #{attrstring}></span>"
+  end
 end
