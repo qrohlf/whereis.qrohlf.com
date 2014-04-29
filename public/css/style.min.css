@@ -7729,8 +7729,15 @@ footer a:hover {
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
 }
-a.normal,
-a.normal:hover {
-  color: inherit;
+button.btn-editor,
+button.btn-editor:hover {
   text-decoration: inherit;
+  border: none;
+  background: transparent;
+}
+button.btn-editor {
+  color: #585858;
+}
+button.btn-editor:hover {
+  color: #3f3f3f;
 }

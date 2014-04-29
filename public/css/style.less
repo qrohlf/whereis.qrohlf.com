@@ -118,7 +118,16 @@ footer {
 @font-size-base: 16px;
 @font-size-h1: floor((@font-size-base * 2));
 
-a.normal, a.normal:hover {
-    color: inherit;
+button.btn-editor, button.btn-editor:hover {
     text-decoration: inherit;
+    border: none;
+    background: transparent;
+}
+
+button.btn-editor {
+    color: @text-color;
+}
+
+button.btn-editor:hover {
+    color: darken(@text-color, 10%)
 }

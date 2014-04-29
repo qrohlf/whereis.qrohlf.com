@@ -1,16 +1,19 @@
 $(document).ready(function() {
-  console.log('js load');
-  $('.items-edit').on('keyup', 'span', function(e) {
+  $('.items-edit').on('keyup', 'span[contenteditable]', function(e) {
     var item = $(this).closest('[data-id]');
     window.clearTimeout(item.data('timer'));
     var timer = setTimeout(function() {updateItem(item.attr('data-id'));}, 500);
     item.data('timer', timer);
-    console.log('keyup event');
-    console.log(item);
+  });
+
+  $('.items-edit').on('click', 'button.delete', function(e) {
+    var item = $(this).closest('[data-id]');
+    var status = $(".status-icon", item);
+    spinner(status);
+    return true; //let the click event propagate and submit the form
   });
 
   function updateItem(id) {
-    console.log('updating '+id);
     var div = $('[data-id="'+id+'"]');
     var title = $(".item-title", div).text();
     var content = $(".item-content", div).text();
@@ -23,8 +26,8 @@ $(document).ready(function() {
   }
 
   function spinner(span) {
-    $('.spinner', span).css({display: 'inline-block', opacity: '1'});
     $('.icon-remove', span).css('opacity', '0');
+    $('.spinner', span).css({display: 'inline-block', opacity: '1'});
   }
 
   function trash(span) {
