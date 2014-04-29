@@ -1,12 +1,12 @@
 $(document).ready(function() {
-  $('.items-edit').on('keyup', 'span[contenteditable]', function(e) {
+  $('.items-edit').on('keyup', 'span[contenteditable]', function() {
     var item = $(this).closest('[data-id]');
     window.clearTimeout(item.data('timer'));
     var timer = setTimeout(function() {updateItem(item.attr('data-id'));}, 500);
     item.data('timer', timer);
   });
 
-  $('.items-edit').on('click', 'button.delete', function(e) {
+  $('.items-edit').on('click', 'button.delete', function() {
     var item = $(this).closest('[data-id]');
     var status = $(".status-icon", item);
     spinner(status);
@@ -20,7 +20,7 @@ $(document).ready(function() {
     var status = $(".status-icon", div);
     spinner(status);
     var data = {_method:"put", title: title, content: content};
-    $.post("/"+id, data, function(response) {
+    $.post("/"+id, data, function() {
         trash(status);
     });
   }
@@ -32,7 +32,7 @@ $(document).ready(function() {
 
   function trash(span) {
     $('.spinner', span).css({opacity: '0'});
-    setTimeout(function() {$('.spinner', span).hide()}, 300); //set display: none for performance reasons
+    setTimeout(function() {$('.spinner', span).hide();}, 300); //set display: none for performance reasons
     $('.icon-remove', span).css('opacity', '1');
   }
 
